@@ -1,47 +1,34 @@
-#### Swift Kotlin
+### Swift Kotlin
 A Quick Reference for The Other Side
 
 This is a quick reference for Swift developers looking to get started playing with Kotlin.
 
-File Types
+* File Types
+* Semicolons
+* Functions
+* Main
+* Variables
+* Constants
+* Strings
+* String Interpolation
+* Null / Nil
+* Nullability / Optional
+* Arrays
+* Console Print
+* Classes
 
-Semicolons
-
-Functions
-
-Main
-
-Variables
-
-Constants
-
-Strings
-
-String Interpolation
-
-Null / Nil
-
-Nullability / Optional
-
-Arrays
-
-Console Print
-
-Classes
-
-File Types
+#### File Extensions
 
 | Kotlin | Swift |
 | --- | --- |
-| HelloWorld.kt | HelloWorld.swift |
+| `HelloWorld.kt` | `HelloWorld.swift` |
 
-Semicolons
-
+#### Semicolons
 Whilst you can use them in both languages, in almost all cases they are redundant and not the de facto code style. Use them if you want to see odd looks on your teammates faces when they do code review.
 
 See: [https://twitter.com/alexjlockwood/status/883020375403188224](https://twitter.com/alexjlockwood/status/883020375403188224)
 
-Functions
+#### Functions
 
 Kotlin devs get to save a finger tap when declaring their functions
 
@@ -57,18 +44,15 @@ They can even dump the braces for simple one line functions
 
 Note the implicit return too.
 
-Return
+#### Return
 
 When your functions want to return something..
 
 // TODO
 
-Main Function
+#### Main Function
 
-Like all good languages, paying their dues to their Unix/c beginnings, and most common execution environment
-
-# 1
-, both Kotlin and Swift begin execution at their one and only main function.
+Like all good languages, paying their dues to their Unix/c beginnings, and most common execution environment, both Kotlin and Swift begin execution at their one and only main function.
 
 However, in Swift, this function is not typically written by the developer. Instead you decorate your AppDelegate with an attribute @UIApplicationMain and the rest of the boilerplate is done for you. If you want to take control at this early stage, you can do that by not using this attribute and including a main.swift file for this purpose.
 
@@ -80,7 +64,7 @@ See: [https://developer.apple.com/library/content/documentation/Swift/Conceptual
 
 [https://developer.apple.com/documentation/uikit/1622933-uiapplicationmain](https://developer.apple.com/documentation/uikit/1622933-uiapplicationmain)
 
-Constants
+#### Constants
 
 We all love immutability and, as you might expect, Kotlin and Swift do too. Declare your unchanging values with val and let.
 
@@ -88,7 +72,7 @@ We all love immutability and, as you might expect, Kotlin and Swift do too. Decl
 | --- | --- |
 | val meaning = 42 | let meaning = 42 |
 
-Variables
+#### Variables
 
 We all need mutability, however, and Kotlin and Swift resign themselves to this fact too. Declare your variables with var.
 
@@ -96,7 +80,7 @@ We all need mutability, however, and Kotlin and Swift resign themselves to this 
 | --- | --- |
 | var hourOfTheDay = 11 | var hourOfTheDay = 11 |
 
-Strings
+#### Strings
 
 Literal strings are declared the same way in both languages, as you might perhaps expect (although maybe not if you&#39;re an Objective-C head).
 
@@ -110,7 +94,7 @@ Declaring a variable of the string type is very similar too
 | --- | --- |
 | val language = &quot;EN&quot; | let language = &quot;EN&quot; |
 
-String Interpolation
+#### String Interpolation
 
 Alas, string interpolation is similar but not the same syntax either.
 
@@ -118,11 +102,11 @@ Alas, string interpolation is similar but not the same syntax either.
 | --- | --- |
 | println(&quot;Hello ${name}&quot;) | print(&quot;Hello \(name)&quot;) |
 
-Null / Nil
+#### Null / Nil
 
 You may be familiar with the idea of _nil_ from Swift, and Kotlin is no different, except that it&#39;s called _null._
 
-Nullability / Optional
+#### Nullability / Optional
 
 For a reference to be nil, it must be marked as _Nullable_. In Swift we call this an _Optional,_ but if you are used to bridging to Objective-C the idea of _nullable_ and _nonnull_ decorators should make this feel quite familiar. The cool thing is, the decorator is the same, so call it what you want.
 
@@ -130,15 +114,15 @@ For a reference to be nil, it must be marked as _Nullable_. In Swift we call thi
 | --- | --- |
 | fun parseInt(str: String): Int? | func parseInt(str: String): Int? |
 
-Nil Coalescing
+#### Nil Coalescing
 
-You&#39;ve gotta hand it to Kotlin, we both have nil coalescing operators, but they win hands down, because their is _the elvis operator!  ?:  (hint: think old skool emoticon)_
+You've gotta hand it to Kotlin, we both have nil coalescing operators, but they win hands down, because their is _the elvis operator!  ?:  (hint: think old skool emoticon)_
 
 | Kotlin | Swift |
 | --- | --- |
 | ?: | ?? |
 
-Arrays
+#### Arrays
 
 To declare an array is very similar, except that Swift now favours the literal syntax and will (in Xcode, in most cases) complain if you don&#39;t use that syntax.
 
@@ -152,7 +136,7 @@ Speaking of the literal syntax. Swift has a cleaner, and simpler syntax for arra
 | --- | --- |
 |   val guests = arrayOf(&quot;Mickey&quot;, &quot;Donald&quot;, &quot;Goofy&quot;, &quot;Minnie&quot;) | let guests = [&quot;Mickey&quot;, &quot;Donald&quot;, &quot;Goofy&quot;, &quot;Minnie&quot;] |
 
-Console Print
+#### Console Print
 
 Everybody needs to dump out stuff to the console sometimes (AKA caveman debugging). Print if your friend.
 
@@ -160,7 +144,7 @@ Everybody needs to dump out stuff to the console sometimes (AKA caveman debuggin
 | --- | --- |
 | println(&quot;Hello &quot;) // no newlineprintln(&quot;World&quot;) // with newline | print(&quot;Hello World&quot;) |
 
-Classes
+#### Classes
 
 This is one of those times where Kotlin and Swift are together, but not the same.
 
@@ -176,7 +160,7 @@ Constructors for classes are where things get interesting and Kotlin devs get to
 | --- | --- |
 | class MyClass(val name: String) {    fun myFunction() {        println(&quot;Hello ${name}&quot;)    }} | class MyClass {    let name: String    init(name: String) {      self.name = name       }    func myFunction() {        print(&quot;Hello \(name)&quot;)    }} |
 
-Tuples
+#### Tuples
 
 Both languages support tuples, but Kotlin has deprecated them in favour of Data classes instead. I think I agree that they are not needed.
 
@@ -196,22 +180,20 @@ If
 
 As you would expect, both languages have if/else conditionals that look very similar. Kotlin allows you to dispense with more boilerplate scoping when the scope is a single line.
 
+BY &#39;Romain Piel&#39;
+ON &#39;2017-08-08T01:14:12&#39;
+NOTE: &#39;You can also move the return before the if&#39;]
+
 | Kotlin | Swift |
 | --- | --- |
 | fun max(a: Int, b: Int): Int {    if (a == b) return a
 
-#
-[ANNOTATION:
-
-BY &#39;Romain Piel&#39;
-ON &#39;2017-08-08T01:14:12&#39;
-NOTE: &#39;You can also move the return before the if&#39;]
 if (a &gt; b) {
         return a    } else {        return b    }} | func max(a: Int, b: Int) -&gt; Int {    if a == b { return a }        if a &gt; b {        return a    } else {        return b    }} |
 
 Note the different pattern that the two teams too as to what to bracket off - the condition or the if true action.
 
-While
+#### While
 
 Nothing in it for the while loop here as both languages are identical. Some interesting differences between array literals though...
 
@@ -219,7 +201,7 @@ Nothing in it for the while loop here as both languages are identical. Some inte
 | --- | --- |
 |   val guests = arrayOf(&quot;Mickey&quot;, &quot;Donald&quot;, &quot;Goofy&quot;, &quot;Minnie&quot;)        var i = 0    while (i &lt; guests.size) {            println(&quot;Welcome ${guests[i]}&quot;)            i++        } | let guests = [&quot;Mickey&quot;, &quot;Donald&quot;, &quot;Goofy&quot;, &quot;Minnie&quot;]var i = 0while (i &lt; guests.count) {    print(&quot;Welcome \(guests[i])&quot;)    i+=1} |
 
-For
+#### For
 
 Kotlin follows a typical pattern of preferring to dispose of the block braces where possible and, thus, requiring the bracketing of the iteration expression. Swift zags to Kotlin&#39;s zig and wants the inverse - always bracket the block and never the iteration expression.
 
@@ -229,7 +211,7 @@ Kotlin follows a typical pattern of preferring to dispose of the block braces wh
 
 Reference: http://kotlinlang.org/docs/reference/control-flow.html#for-loops
 
-Type Checking
+#### Type Checking
 
 Despite the implicit typing in both languages you sometimes need to check the type of something. Use the _is_ operator for this.
 
@@ -242,6 +224,6 @@ Kotlin has a couple of neat tricks up its sleeve here
 - After a successful type check, the type is implied and so needs no further casting
 - The String handling is simpler so length is available without needing to be more explicit.
 
-Guard
+#### Guard
 
 [https://android.jlelse.eu/a-few-ways-to-implement-a-swift-like-guard-in-kotlin-ffd94027864e](https://android.jlelse.eu/a-few-ways-to-implement-a-swift-like-guard-in-kotlin-ffd94027864e)
