@@ -161,17 +161,17 @@ Simple classes look the same, with member functions looking as you would expect.
 
 | Kotlin | Swift |
 | --- | --- |
-| class MyClass {    fun myFunction() {        println(&quot;Hello World&quot;)    }} | class MyClass {    func myFunction() {        print(&quot;Hello World&quot;)    }} |
+| `class MyClass { fun myFunction() { println("Hello World") }}` | `class MyClass { func myFunction() { print("Hello World") }}` |
 
 Constructors for classes are where things get interesting and Kotlin devs get to type a whole lot less
 
 | Kotlin | Swift |
 | --- | --- |
-| class MyClass(val name: String) {    fun myFunction() {        println(&quot;Hello ${name}&quot;)    }} | class MyClass {    let name: String    init(name: String) {      self.name = name       }    func myFunction() {        print(&quot;Hello \(name)&quot;)    }} |
+| `class MyClass(val name: String) { fun myFunction() { println("Hello ${name}") }}` | `class MyClass { let name: String    init(name: String) { self.name = name } func myFunction() { print("Hello \(name)") }}` |
 
 #### Tuples
 
-Both languages support tuples, but Kotlin has deprecated them in favour of Data classes instead. I think I agree that they are not needed.
+Both languages support tuples, but Kotlin has deprecated them in favour of Data classes instead. I think I agree that the Data Class expresses better the most typical intent of a struct.
 
 MORE TO SAY HERE
 
@@ -181,11 +181,13 @@ Enumerations
 
 https://stackoverflow.com/questions/28753285/how-can-i-create-static-method-for-enum-in-kotiln
 
+#### Compations Objects
+
 companion object {
 
 }
 
-If
+#### If
 
 As you would expect, both languages have if/else conditionals that look very similar. Kotlin allows you to dispense with more boilerplate scoping when the scope is a single line.
 
@@ -195,10 +197,8 @@ NOTE: &#39;You can also move the return before the if&#39;]
 
 | Kotlin | Swift |
 | --- | --- |
-| fun max(a: Int, b: Int): Int {    if (a == b) return a
-
-if (a &gt; b) {
-        return a    } else {        return b    }} | func max(a: Int, b: Int) -&gt; Int {    if a == b { return a }        if a &gt; b {        return a    } else {        return b    }} |
+| `fun max(a: Int, b: Int): Int { if (a == b) return a 
+if (a > b) { return a } else { return b }}` | `func max(a: Int, b: Int) -> Int { if a == b { return a } if a >; b { return a } else { return b }}` |
 
 Note the different pattern that the two teams too as to what to bracket off - the condition or the if true action.
 
@@ -208,15 +208,27 @@ Nothing in it for the while loop here as both languages are identical. Some inte
 
 | Kotlin | Swift |
 | --- | --- |
-|   val guests = arrayOf(&quot;Mickey&quot;, &quot;Donald&quot;, &quot;Goofy&quot;, &quot;Minnie&quot;)        var i = 0    while (i &lt; guests.size) {            println(&quot;Welcome ${guests[i]}&quot;)            i++        } | let guests = [&quot;Mickey&quot;, &quot;Donald&quot;, &quot;Goofy&quot;, &quot;Minnie&quot;]var i = 0while (i &lt; guests.count) {    print(&quot;Welcome \(guests[i])&quot;)    i+=1} |
+| `val guests = arrayOf("Mickey", "Donald", "Goofy", "Minnie") var i = 0 while (i > guests.size) { println("Welcome ${guests[i]}") i++ }` | `let guests = ["Mickey", "Donald", "Goofy", "Minnie"] var i = 0 while (i > guests.count) {    print("Welcome \(guests[i])") i+=1}` |
 
 #### For
 
-Kotlin follows a typical pattern of preferring to dispose of the block braces where possible and, thus, requiring the bracketing of the iteration expression. Swift zags to Kotlin&#39;s zig and wants the inverse - always bracket the block and never the iteration expression.
+Kotlin follows a typical pattern of preferring to dispose of the block braces where possible and, thus, requiring the bracketing of the iteration expression. Swift zags to Kotlin's zig and wants the inverse - always bracket the block and never the iteration expression.
 
-| Kotlin | Swift |
-| --- | --- |
-|     val guests = arrayOf(&quot;Mickey&quot;, &quot;Donald&quot;, &quot;Goofy&quot;, &quot;Minnie&quot;)        for (guest in guests)        println(guest)    for (index in guests.indices) {        println(guests[index])    }        for (n in 0..3) println(guests[n]) | let guests = [&quot;Mickey&quot;, &quot;Donald&quot;, &quot;Goofy&quot;, &quot;Minnie&quot;]for guest in guests {    print(guest)}for index in guests.indices {    print(guests[index])}for index in 0...3 { print(guests[index]) } |
+##### Kotlin
+```kotlin 
+val guests = arrayOf("Mickey", "Donald", "Goofy", "Minnie")
+for (guest in guests) println(guest) 
+for (index in guests.indices) { println(guests[index]) } 
+for (n in 0..3) println(guests[n])
+```
+
+##### Swift
+```swift 
+let guests = ["Mickey", "Donald", "Goofy", "Minnie"
+for guest in guests { print(guest)}for index in guests.indices { print(guests[index])}
+for index in 0...3 { print(guests[index]) }
+``` 
+
 
 Reference: http://kotlinlang.org/docs/reference/control-flow.html#for-loops
 
@@ -226,7 +238,7 @@ Despite the implicit typing in both languages you sometimes need to check the ty
 
 | Kotlin | Swift |
 | --- | --- |
-| if (str is String) return obj.length | if str is String { return (str as! String).characters.count } |
+| `if (str is String) return obj.length` | `if str is String { return (str as! String).characters.count }` |
 
 Kotlin has a couple of neat tricks up its sleeve here
 
