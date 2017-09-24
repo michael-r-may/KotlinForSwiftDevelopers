@@ -1,7 +1,11 @@
 ### Swift Kotlin
-A Quick Reference for The Other Side
+##### A Quick Reference for The Other Side
 
-This is a quick reference for Swift developers looking to get started playing with Kotlin.
+This is a quick reference for Swift developers looking to get started playing with Kotlin. I began writing it as I started learning Kotlin so that it would stick in my memory better, so that I could refer to it myself, and so that others (like you, dear reader) might benefit and contribute to it. 
+
+_Read, Learn, Fork, Contribute_
+
+#### Contents
 
 * File Types
 * Semicolons
@@ -34,31 +38,35 @@ Kotlin devs get to save a finger tap when declaring their functions
 
 | Kotlin | Swift |
 | --- | --- |
-| fun greeting() {      println(&quot;Hi There&quot;)} | func greeting() {      print(&quot;Hi There&quot;)} |
+| `fun greeting() { println("Hi There")}` | `func greeting() { print("Hi There")}` |
 
 They can even dump the braces for simple one line functions
 
 | Kotlin | Swift |
 | --- | --- |
-| fun max(number1: Int, number2: Int) = if (number1 &gt; number2) number1 else number2 | func max(number1: Int, number2: Int) -&gt; Int {    return (number1 &gt; number2) ? number1 : number2} |
+| `fun max(number1: Int, number2: Int) = if (number1 > number2) number1 else number2` | `func max(number1: Int, number2: Int) -> Int { return (number1 > number2) ? number1 : number2}` |
 
 Note the implicit return too.
 
 #### Return
 
-When your functions want to return something..
+Speaking of returns...when your functions want to return something..
+
+| Kotlin | Swift |
+| --- | --- |
+
 
 // TODO
 
 #### Main Function
 
-Like all good languages, paying their dues to their Unix/c beginnings, and most common execution environment, both Kotlin and Swift begin execution at their one and only main function.
+Like all good languages, paying their dues to their Unix/c beginnings, and most common execution environment, both Kotlin and Swift begin running at their one and only main function.
 
 However, in Swift, this function is not typically written by the developer. Instead you decorate your AppDelegate with an attribute @UIApplicationMain and the rest of the boilerplate is done for you. If you want to take control at this early stage, you can do that by not using this attribute and including a main.swift file for this purpose.
 
 | Kotlin | Swift (main.swift) |
 | --- | --- |
-| fun main(args: Array&lt;String&gt;) {    if (args.size == 0) {        println(&quot;No command line arguments&quot;)        return    }    println(&quot;${args[0]}!&quot;)} | @UIApplicationMainclass AppDelegate: UIResponder, UIApplicationDelegate {    func application(\_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {        return true    }} |
+| `fun main(args: Array<String>) { if (args.size == 0) { println("No command line arguments") return }    println("${args[0]}!")}` | `@UIApplicationMainclass AppDelegate: UIResponder, UIApplicationDelegate { func application(\_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {   return true }}` |
 
 See: [https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift\_Programming\_Language/Attributes.html](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Attributes.html)
 
@@ -70,7 +78,7 @@ We all love immutability and, as you might expect, Kotlin and Swift do too. Decl
 
 | Kotlin | Swift |
 | --- | --- |
-| val meaning = 42 | let meaning = 42 |
+| `val meaning = 42` | `let meaning = 42` |
 
 #### Variables
 
@@ -78,7 +86,7 @@ We all need mutability, however, and Kotlin and Swift resign themselves to this 
 
 | Kotlin | Swift |
 | --- | --- |
-| var hourOfTheDay = 11 | var hourOfTheDay = 11 |
+| `var hourOfTheDay = 11` | `var hourOfTheDay = 11` |
 
 #### Strings
 
@@ -86,13 +94,13 @@ Literal strings are declared the same way in both languages, as you might perhap
 
 | Kotlin | Swift |
 | --- | --- |
-| &quot;Hello World&quot; | &quot;Hello World&quot; |
+| `"Hello World"` | `"Hello World"` |
 
 Declaring a variable of the string type is very similar too
 
 | Kotlin | Swift |
 | --- | --- |
-| val language = &quot;EN&quot; | let language = &quot;EN&quot; |
+| `"val language = &quot;EN"` | `let language = "EN"` |
 
 #### String Interpolation
 
@@ -100,11 +108,11 @@ Alas, string interpolation is similar but not the same syntax either.
 
 | Kotlin | Swift |
 | --- | --- |
-| println(&quot;Hello ${name}&quot;) | print(&quot;Hello \(name)&quot;) |
+| `println("Hello ${name}")` | `print("Hello \(name)")` |
 
 #### Null / Nil
 
-You may be familiar with the idea of _nil_ from Swift, and Kotlin is no different, except that it&#39;s called _null._
+You may be familiar with the idea of _nil_ from Swift, and Kotlin is no different, except that it's called _null._
 
 #### Nullability / Optional
 
@@ -112,15 +120,15 @@ For a reference to be nil, it must be marked as _Nullable_. In Swift we call thi
 
 | Kotlin | Swift |
 | --- | --- |
-| fun parseInt(str: String): Int? | func parseInt(str: String): Int? |
+| `fun parseInt(str: String): Int?` | `func parseInt(str: String): Int?` |
 
 #### Nil Coalescing
 
-You've gotta hand it to Kotlin, we both have nil coalescing operators, but they win hands down, because their is _the elvis operator!  ?:  (hint: think old skool emoticon)_
+You've gotta hand it to Kotlin, we both have nil coalescing operators, but they win hands down, because their is _the elvis operator!  ?:  (hint: think old skool emoticon and tilt your head left)_
 
 | Kotlin | Swift |
 | --- | --- |
-| ?: | ?? |
+| `?:` | `??` |
 
 #### Arrays
 
@@ -128,21 +136,22 @@ To declare an array is very similar, except that Swift now favours the literal s
 
 | Kotlin | Swift |
 | --- | --- |
-| Array&lt;String&gt; | Array&lt;String&gt; [String] |
+| `Array<String>` | `Array<String> [String]` |
 
 Speaking of the literal syntax. Swift has a cleaner, and simpler syntax for array literals too...
 
 | Kotlin | Swift |
 | --- | --- |
-|   val guests = arrayOf(&quot;Mickey&quot;, &quot;Donald&quot;, &quot;Goofy&quot;, &quot;Minnie&quot;) | let guests = [&quot;Mickey&quot;, &quot;Donald&quot;, &quot;Goofy&quot;, &quot;Minnie&quot;] |
+| `val guests = arrayOf("Mickey", "Donald", "Goofy", "Minnie";)` | `let guests = ["Mickey", "Donald", "Goofy", "Minnie"]` |
 
 #### Console Print
 
-Everybody needs to dump out stuff to the console sometimes (AKA caveman debugging). Print if your friend.
+Everybody needs to dump out stuff to the console sometimes (AKA caveman debugging). Print is your friend.
 
 | Kotlin | Swift |
 | --- | --- |
-| println(&quot;Hello &quot;) // no newlineprintln(&quot;World&quot;) // with newline | print(&quot;Hello World&quot;) |
+| `println("Hello") // no newline` 
+`println("World") // with newline` | `print("Hello World")` |
 
 #### Classes
 
