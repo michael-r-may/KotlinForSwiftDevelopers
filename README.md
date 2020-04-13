@@ -100,7 +100,7 @@ Declaring a variable of the string type is very similar too
 
 | Kotlin | Swift |
 | --- | --- |
-| `"val language = &quot;EN"` | `let language = "EN"` |
+| `"val language = "EN"` | `let language = "EN"` |
 
 #### String Interpolation
 
@@ -132,7 +132,7 @@ You've gotta hand it to Kotlin, we both have nil coalescing operators, but they 
 
 #### Arrays
 
-To declare an array is very similar, except that Swift now favours the literal syntax and will (in Xcode, in most cases) complain if you don&#39;t use that syntax.
+To declare an array is very similar, except that Swift now favours the literal syntax and will (in Xcode, in most cases) complain if you don't use that syntax.
 
 | Kotlin | Swift |
 | --- | --- |
@@ -143,6 +143,12 @@ Speaking of the literal syntax. Swift has a cleaner, and simpler syntax for arra
 | Kotlin | Swift |
 | --- | --- |
 | `val guests = arrayOf("Mickey", "Donald", "Goofy", "Minnie";)` | `let guests = ["Mickey", "Donald", "Goofy", "Minnie"]` |
+
+Want an array of a known size that is cleanly initialised ?Kotlin has your back, whereas Swift doesn't really consider this use case as common (dynamic arrays are the order of the day) so it has a pretty klunky syntax.
+
+| Kotlin | Swift |
+| --- | --- |
+| `var str = arrayOfNulls<String>(5)` | `var str = [String?](repeating: nil, count: 5)` |
 
 #### Console Print
 
