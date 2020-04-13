@@ -226,6 +226,7 @@ val guests = arrayOf("Mickey", "Donald", "Goofy", "Minnie")
 for (guest in guests) println(guest) 
 for (index in guests.indices) { println(guests[index]) } 
 for (n in 0..3) println(guests[n])
+for ((index, guest) in guests.withIndex()) { println("Guest $index: $guest, ") }
 ```
 
 ##### Swift
